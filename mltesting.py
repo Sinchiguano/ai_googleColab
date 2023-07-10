@@ -156,5 +156,13 @@ print('CONFUSION MATRIX ')
 print(metrics.confusion_matrix(y_test, predictions))
 
 import pickle
-filename='finalModel'
+filename='finalModel.pkl'
 pickle.dump(model,open(filename, 'wb'))
+
+
+# # load the model from disk
+# loaded_model = pickle.load(open(filename, 'rb'))
+# result = loaded_model.score(X_test, Y_test)
+# print(result)
+
+#https://machinelearningmastery.com/gentle-introduction-bag-words-model/
