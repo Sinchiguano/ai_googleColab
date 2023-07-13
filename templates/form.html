@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST">
+        <label for="feature1">Feature 1:</label>
+        <input type="text" name="feature1" required>
+
+        <label for="feature2">Feature 2:</label>
+        <input type="text" name="feature2" required>
+
+        <label for="feature3">Feature 3:</label>
+        <input type="text" name="feature3" required>
+
+        <label for="feature4">Feature 4:</label>
+        <input type="text" name="feature4" required>
+
+        <input type="submit" value="Classify">
+    </form>
+{% endblock %}
