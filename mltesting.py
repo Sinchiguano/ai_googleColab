@@ -105,7 +105,7 @@ ax.set_ylabel('petal width')
 ax.grid()
 ax.set_title('IRIS CLASSIFIER')
 ax.legend()
-plt.show()
+# plt.show()
 
 
 # print('hi')
@@ -117,16 +117,17 @@ When you look at the petal measurements of the three species of iris shown in th
 """
 
 from sklearn.model_selection import train_test_split
-
 from sklearn import *
+
 x=dataset.drop(['species','target'],axis=1)
 print(x.head(3))
 
 # x.info()
 
 x=x.to_numpy()[:,(2,3)]
-
 y=dataset['target']
+
+
 
 # SPLITTING INTO TRAIN AND TEST
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.8,random_state=45)
@@ -135,28 +136,28 @@ from sklearn.linear_model import LogisticRegression
 
 model=LogisticRegression()
 model.fit(x_train,y_train)
-
 predictions=model.predict(x_test)
+
 # predictions
 
-"""Performance Measures
+# """Performance Measures
 
-Performance measures are used to evaluate the effectiveness of classifiers on different datasets with different characteristics. For classification problems, there are three main measures for evaluating the model, the precision(the accuracy of positive predictions or the number of most relevant values from retrieved values.), Recall(ratio of positive instances that are truly detected by the classifier), and confusion matrix.
+# Performance measures are used to evaluate the effectiveness of classifiers on different datasets with different characteristics. For classification problems, there are three main measures for evaluating the model, the precision(the accuracy of positive predictions or the number of most relevant values from retrieved values.), Recall(ratio of positive instances that are truly detected by the classifier), and confusion matrix.
 
-"""
+# """
 
-from sklearn import metrics
+# from sklearn import metrics
 
-print('PRECISION, RECALL, CONFUSION MATRIX IN TESTING')
-#PRECISION RECALL SCORES
-print(metrics.classification_report(y_test, predictions))
+# print('PRECISION, RECALL, CONFUSION MATRIX IN TESTING')
+# #PRECISION RECALL SCORES
+# print(metrics.classification_report(y_test, predictions))
 
-#CONFUSION MATRIX
-print('CONFUSION MATRIX ')
-print(metrics.confusion_matrix(y_test, predictions))
+# #CONFUSION MATRIX
+# print('CONFUSION MATRIX ')
+# print(metrics.confusion_matrix(y_test, predictions))
 
 import pickle
-filename='finalModel.pkl'
+filename='savedModel.pkl'
 pickle.dump(model,open(filename, 'wb'))
 
 
