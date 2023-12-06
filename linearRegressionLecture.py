@@ -26,7 +26,7 @@ print('#PLOT TO VISUALIZE DATA OF HOUSE PRICE PREDICTION.')
 #PRICE IS HIGHLY CORRELATED TO AVERAGE AREA INCOME 
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.pairplot(df)
+# sns.pairplot(df)
 # plt.show()
 
 '''What is Correlation?
@@ -48,4 +48,54 @@ A correlation could be presented in different ways:
 
 
 #SCALING OUR DATA
+#ENHANCES MODEL PERFORMANCE
+#AVOID NUMERICAL LINSTABILITIES (EXTREMELY LARGE OR SMALL VALUES CAN LEAD TO NUMERICAL PRECISION ISSUES)
+#REGULARIZATION
+
+
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler()
+
+x=df.drop(['Price','Address'],axis=1)
+y=df['Price']
+
+
+featuresNames=x.columns
+x=scaler.fit_transform(x)
+
+#SPLITTING OUR DATA FOR TRAINING AND TEST PURPOSES
+from sklearn.model_selection import train_test_split
+
+xtrain,xtest,ytrain,ytest=train_test_split(x,y, test_size=0.3,random_state=101)
+
+
+
+#TRAINING OUR LINEAR REGRESSION MODEL FOR HOUSE PRICE PREDICTION 
+
+from sklearn.linear_model import LinearRegression
+
+
+model=LinearRegression()
+model.fit(xtrain, ytrain)
+
+predictions=model.predict(xtest)
+
+#EVALUATION METRIC OF THE MODEL
+from sklearn.metrics import r2_score
+print(f'The performance of the model {r2_score(ytest,predictions)}')
+
+
+#LET'S VISULIZE OUR PREDICTIONS OF HOUSE PRICE PREDICTION
+
+
+sns.scatterplot(x=ytest,y=predictions)
+plt.show()
+
+
+
+
+
+
+
+
 
