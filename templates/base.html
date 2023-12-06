@@ -6,7 +6,7 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-image: url('machine_learning_background.jpg');
+            background-image: url('./static/background.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -105,29 +105,10 @@
 </head>
 <body>
     <h1>Classification Page</h1>
-    <div class="menu">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
     <div class="content-container">
         {% block content %}{% endblock %}
     </div>
     
-    <div class="login-container">
-        <h2>Login</h2>
-        <form class="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <input type="submit" value="Login">
-        </form>
-    </div>
 </body>
 </html>
 
