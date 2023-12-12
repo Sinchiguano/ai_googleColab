@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #00E506">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('index')}}">index <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+
+</head>
+
+<div class="bg">
+    <body>
+        <center><h1 style="margin-left:-200px;">Artificial Intelligence Course</h1></center>
+        <center><h3 style="margin-left:-200px;">Machine Learning Web App with Flask</h3></center>
+        <center><h4 style="margin-left:-200px;">Ing. Cesar Sinchiguano, MSc</h4></center>
+
+
+        <div id="predict_form" data-aos="fade-down" data-aos-duration="2000">
+            <h1>Iris Classification</h1>
+
+            <p>Classification of iris flowers is perhaps the best-known example of machine learning.
+
+                The aim is to classify iris flowers among three species (Setosa, Versicolor, or Virginica) from sepals' and petals' length and width measurements.
+                
+                The iris data set contains fifty instances of each of the three species.
+                
+                The central goal is to design a model that makes proper classifications for new flowers. In other words, one which exhibits good generalization.</p>
+            
+            <h4> Enter Values to Predict</h4>
+            <form method="post" action="/simple_predict">
+                <input type="text" name="SepalLength" placeholder="SepalLength" required="required" />
+                <input type="text" name="SepalWidth" placeholder="SepalWidth" required="required" />
+                <input type="text" name="PetalLength" placeholder="PetalLength" required="required" />
+                <input type="text" name="PetalWidth" placeholder="PetalWidth" required="required" />
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+        </div>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>AOS.init();</script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+</div>
+
+
+
+
+
+</html>
